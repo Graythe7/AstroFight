@@ -4,15 +4,57 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D rigidBody;
+    public Bullet bulletPrefab;
+    public Transform firePoint;
+
+    public float speed = 1.0f;
+    public float minY = -1.5f;
+    public float maxY = 1.5f;
+    private bool movingUp = true;
+
+    // Variables for shooting intervals
+    private float nextShootTime = 0f; // Time when the next shot can occur
+    private float minFireRate = 1f; // Minimum interval between shots
+    private float maxFireRate = 2f; // Maximum interval between shots
+
+    private void Awake()
     {
-        
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (movingUp)
+        {
+            transform.Translate(speed * Time.deltaTime * Vector2.up);
+
+            if(transform.position.y >= maxY)
+            {
+                movingUp = false;
+            }
+        }else if (!movingUp)
+        {
+            transform.Translate(speed * Time.deltaTime * Vector2.down);
+
+            if (transform.position.y <= minY)
+            {
+                movingUp = true;
+            }
+        }
+
+        // Shooting logic with random intervals
+        if (Time.time > nextShootTime) // Check if the current time has passed the next shoot time
+        {
+            Shoot();
+            nextShootTime = Time.time + Random.Range(minFireRate, maxFireRate); // Set the next shoot time
+        }
+
+    }
+
+    private void Shoot()
+    {
+        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        bullet.Project(Vector2.left);
     }
 }
