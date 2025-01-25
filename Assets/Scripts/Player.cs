@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Bullet bulletPrefab;
-
+    public GameManager gameManager;
     private Rigidbody2D rigidBody;
 
     public float speed = 5f;
@@ -40,6 +40,14 @@ public class Player : MonoBehaviour
     {
         Bullet bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         bullet.Project(transform.right);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            gameManager.PlayerDied();
+        }
     }
 
 }
