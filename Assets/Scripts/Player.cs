@@ -7,14 +7,19 @@ public class Player : MonoBehaviour
     public Bullet bulletPrefab;
     public GameManager gameManager;
     private Rigidbody2D rigidBody;
-
+    public SpriteRenderer spriteRenderer;
+ 
     public float speed = 5f;
     private Vector2 direction;
+    public bool isInvincible = false;
+    public float invincibilityDuration = 3.0f;
+    public float flashInterval = 0.5f;
 
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -46,8 +51,27 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            gameManager.PlayerDied();
+            gameManager.PlayerDamage();
         }
+    }
+
+    public IEnumerator Invincibility()
+    {
+        isInvincible = true;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+
+        //this method use elapsedTime(passedTime) to decide how long to run
+        float elapsedTime = 0f;
+        while (elapsedTime < invincibilityDuration)
+        {
+            spriteRenderer.enabled = !spriteRenderer.enabled; // flickering effect
+            yield return new WaitForSeconds(flashInterval);
+            elapsedTime += flashInterval;
+        }
+
+        spriteRenderer.enabled = true;
+        isInvincible = false;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
     }
 
 }

@@ -7,6 +7,8 @@ public class Boss : MonoBehaviour
     private Rigidbody2D rigidBody;
     public Bullet bulletPrefab;
     public Transform firePoint;
+    public GameManager gameManager;
+    public SpriteRenderer spriteRenderer;
 
     public float speed = 1.0f;
     public float minY = -1.5f;
@@ -21,6 +23,7 @@ public class Boss : MonoBehaviour
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -56,5 +59,19 @@ public class Boss : MonoBehaviour
     {
         Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.Project(Vector2.left);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet")){
+            gameManager.BossDamage();
+        }
+    }
+
+    public IEnumerator DamageColor()
+    {
+        spriteRenderer.color = new Color(234f / 255f, 204f / 255f, 204f / 255f, 1f);
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
     }
 }
