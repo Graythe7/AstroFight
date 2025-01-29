@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    public Bullet bulletPrefab;
+    public SpriteRenderer spriteRenderer;
     public Transform firePoint;
     public GameManager gameManager;
-    public SpriteRenderer spriteRenderer;
-
+    public Bullet bulletPrefab;
+   
     public float speed = 1.0f;
     public float minY = -1.5f;
     public float maxY = 1.5f;
@@ -19,6 +20,7 @@ public class Boss : MonoBehaviour
     private float nextShootTime = 0f; // Time when the next shot can occur
     private float minFireRate = 1f; // Minimum interval between shots
     private float maxFireRate = 2f; // Maximum interval between shots
+
 
     private void Awake()
     {
@@ -74,4 +76,6 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
     }
+
+    
 }
