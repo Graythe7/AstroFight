@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public bool isInvincible = false;
     public float invincibilityDuration = 3.0f;
     public float flashInterval = 0.5f;
+    public float fireRate = 2.0f; // interval between continious shooting
+    private float nextFireTime = 0.0f; 
 
 
     private void Start()
@@ -29,16 +31,19 @@ public class Player : MonoBehaviour
 
         direction = new Vector2(horizontal, vertical).normalized;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
-        }
-
     }
+
 
     private void FixedUpdate()
     {
         rigidBody.AddForce(direction * speed);
+
+
+        if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
+        {
+            Shoot();
+            nextFireTime = fireRate + Time.time;
+        }
     }
 
     private void Shoot()

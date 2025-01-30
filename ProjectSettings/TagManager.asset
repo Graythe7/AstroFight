@@ -19,7 +19,7 @@ TagManager:
   - Bullet
   - Enemy
   - Boss
-  - 
+  - MiniEnemy
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: playerEngine
+    uniqueID: 1867820359
     locked: 0
