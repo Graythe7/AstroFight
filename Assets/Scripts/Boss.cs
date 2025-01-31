@@ -15,11 +15,14 @@ public class Boss : MonoBehaviour
     public float minY = -1.5f;
     public float maxY = 1.5f;
     private bool movingUp = true;
+    public float minAngle = -30f;
+    public float maxAngle = 30f;
 
     // Variables for shooting intervals
     private float nextShootTime = 0f; // Time when the next shot can occur
     private float minFireRate = 1f; // Minimum interval between shots
     private float maxFireRate = 2f; // Maximum interval between shots
+
 
 
     private void Awake()
@@ -59,8 +62,14 @@ public class Boss : MonoBehaviour
 
     private void Shoot()
     {
-        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        bullet.Project(Vector2.left);
+        float[] angles = {minAngle, 0 , maxAngle};
+
+        foreach(float angle in angles)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
+            bullet.Project(rotation * Vector2.left);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)

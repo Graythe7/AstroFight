@@ -9,6 +9,7 @@ public class MiniBoss : MonoBehaviour
 
     private void Start()
     {
+        
         Destroy(gameObject, lifeTime);
     }
 
