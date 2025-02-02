@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime)
         {
             Shoot();
-            nextFireTime = fireRate + Time.time;
+            nextFireTime = fireRate + Time.time; 
         }
     }
 
@@ -54,7 +54,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        gameManager.PlayerDamage();
+        if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("MiniEnemy") || other.gameObject.CompareTag("EnemyBullet"))
+        {
+            gameManager.PlayerDamage();
+        }
+        
     }
 
     public IEnumerator Invincibility()

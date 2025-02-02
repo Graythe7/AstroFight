@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
             playerLivesImg[i].enabled = true;
         }
 
-        player.transform.position = new Vector2(-6.5f, 0.0f);
-        boss.transform.position = new Vector2(5.5f, 0f);
+        player.transform.position = new Vector2(-6f, 0.0f);
+        boss.transform.position = new Vector2(5f, 0f);
 
        // SceneManager.LoadScene("Level-1"); 
 
@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
 
         if(bossHealth <= 0)
         {
+            
             WinGame();
         }
     }
@@ -104,7 +105,7 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         winText.gameObject.SetActive(true);
-        boss.gameObject.SetActive(false); // change this 
+        //boss.gameObject.SetActive(false); // change this 
         enemySpawner.gameObject.SetActive(false); 
 
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);

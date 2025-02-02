@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2027249403222479373}
   - component: {fileID: 8549885242563858656}
   - component: {fileID: -7200703440959162525}
+  - component: {fileID: 1438330918793534194}
   m_Layer: 8
   m_Name: miniBoss1
   m_TagString: MiniEnemy
@@ -126,3 +127,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeTime: 7
+--- !u!95 &1438330918793534194
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241600126064152473}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 727f8f379a6ef4160b6e5016547fd13b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
