@@ -6,9 +6,8 @@ public class Spawner : MonoBehaviour
 {
     public GameObject miniBossPrefab;
     public Transform spawnPoint;
+    private Transform player;
     public int numberOfEnemiesToSpawn = 4;
-    public float minY = -3.0f;
-    public float maxY = 3.0f;
     public float spacing = 1.0f;
     public float minSpawnTime = 3.0f;
     public float maxSpawnTime = 6.0f;
@@ -17,8 +16,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerTargetY = player.position.y;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(SpawnEnemy());
     }
 
@@ -27,8 +25,9 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
- 
-            for(int i = 0; i < numberOfEnemiesToSpawn; i++)
+            playerTargetY = player.position.y;
+
+            for (int i = 0; i < numberOfEnemiesToSpawn; i++)
             {
                 Vector2 spawnPosition = new Vector2(spawnPoint.position.x + i, playerTargetY);
                 Instantiate(miniBossPrefab, spawnPosition, Quaternion.identity);

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
+    public Animator bossAnimator;
     private Rigidbody2D rigidBody;
     public SpriteRenderer spriteRenderer;
     public Transform firePoint;
@@ -84,6 +85,11 @@ public class Boss : MonoBehaviour
         spriteRenderer.color = new Color(234f / 255f, 204f / 255f, 204f / 255f, 1f);
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
+    }
+
+    public void BossDead(bool isBossDead)
+    {
+        bossAnimator.SetBool("isBossDead", isBossDead);
     }
 
     

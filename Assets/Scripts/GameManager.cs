@@ -10,15 +10,17 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Boss boss;
     public Background backGround;
+    public ParticleSystem playerExplosion;
 
     private int playerLives = 3;
-    private int bossHealth = 100;
+    private int bossHealth = 100; 
 
     public HealthBar healthBar;
     public Button retryButton;
     public TextMeshProUGUI winText;
     public GameObject gameOverText;
     public GameObject enemySpawner;
+    public GameObject bossShoot; // maybe this is extra
     public Image[] playerLivesImg;
 
     public void Awake(){
@@ -30,15 +32,20 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         playerLives = 3;
-        bossHealth = 100;
+        bossHealth = 10; // to change back
 
         healthBar.HealthUI(bossHealth);
         backGround.meshRenderer.material.mainTextureOffset = Vector2.zero;
 
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        boss.BossDead(false);
+
         gameOverText.SetActive(false);
         retryButton.gameObject.SetActive(false);
         winText.gameObject.SetActive(false);
+        player.gameObject.SetActive(true);
         boss.gameObject.SetActive(true);
+        bossShoot.gameObject.SetActive(true);
         enemySpawner.gameObject.SetActive(true);
 
 
@@ -67,7 +74,11 @@ public class GameManager : MonoBehaviour
         if (player.isInvincible) return; //if isInvincible flag is true the rest of method is temporary disable
 
         playerLives--;
-        playerLivesImg[playerLives].enabled = false;
+
+        if (playerLives >= 0 && playerLives < playerLivesImg.Length) // to prevent out of range index error
+        {
+            playerLivesImg[playerLives].enabled = false;
+        }
 
         if (playerLives <= 0)
         {
@@ -89,23 +100,34 @@ public class GameManager : MonoBehaviour
 
         if(bossHealth <= 0)
         {
-            
+            boss.BossDead(true);
             WinGame();
         }
     }
 
     public void GameOver()
     {
+        StartCoroutine(GameOverSequence());
+    }
+
+    private IEnumerator GameOverSequence()
+    {
+        playerExplosion.Play();
+        player.GetComponent<SpriteRenderer>().enabled = false;
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
         Time.timeScale = 0;
+
         gameOverText.SetActive(true);
         retryButton.gameObject.SetActive(true);
-
+        //player.gameObject.SetActive(false);
     }
 
     public void WinGame()
     {
         winText.gameObject.SetActive(true);
-        //boss.gameObject.SetActive(false); // change this 
+        bossShoot.gameObject.SetActive(false); 
         enemySpawner.gameObject.SetActive(false); 
 
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
