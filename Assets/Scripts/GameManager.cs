@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Boss boss;
     public Background backGround;
     public ParticleSystem playerExplosion;
+    public GameObject bossExplosion;
 
     private int playerLives = 3;
     private int bossHealth = 100; 
@@ -128,9 +129,12 @@ public class GameManager : MonoBehaviour
     {
         winText.gameObject.SetActive(true);
         bossShoot.gameObject.SetActive(false); 
-        enemySpawner.gameObject.SetActive(false); 
+        enemySpawner.gameObject.SetActive(false);
 
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+        boss.enabled = false;
+        bossExplosion.SetActive(true);
+
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
     }
 
 }

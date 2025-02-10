@@ -61,7 +61,7 @@ public class Boss : MonoBehaviour
 
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         float[] angles = {minAngle, 0 , maxAngle};
 
