@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   lifeTime: 7
+  deadExplosion: {fileID: 0}
 --- !u!95 &1438330918793534194
 Animator:
   serializedVersion: 4

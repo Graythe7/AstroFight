@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Boss boss;
     public Background backGround;
     public ParticleSystem playerExplosion;
-    public GameObject bossExplosion;
+    public ParticleSystem bossExplosion;
 
     private int playerLives = 3;
     private int bossHealth = 100; 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         playerLives = 3;
-        bossHealth = 10; // to change back
+        bossHealth = 100; 
 
         healthBar.HealthUI(bossHealth);
         backGround.meshRenderer.material.mainTextureOffset = Vector2.zero;
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         boss.gameObject.SetActive(true);
         bossShoot.gameObject.SetActive(true);
         enemySpawner.gameObject.SetActive(true);
+       
 
 
         GameObject[] miniEnemies = GameObject.FindGameObjectsWithTag("MiniEnemy");
@@ -125,6 +126,7 @@ public class GameManager : MonoBehaviour
         //player.gameObject.SetActive(false);
     }
 
+    
     public void WinGame()
     {
         winText.gameObject.SetActive(true);
@@ -132,9 +134,19 @@ public class GameManager : MonoBehaviour
         enemySpawner.gameObject.SetActive(false);
 
         boss.enabled = false;
-        bossExplosion.SetActive(true);
+
+        InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
 
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+    }
+
+    private void BossParticleEffect()
+    {
+        Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+        Vector3 effectPosition = boss.transform.position + randomOffset;
+
+        bossExplosion.transform.position = effectPosition;
+        bossExplosion.Play();
     }
 
 }

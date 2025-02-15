@@ -6,10 +6,9 @@ public class MiniBoss : MonoBehaviour
 {
     public float speed = 15.0f;
     public float lifeTime = 7.0f;
-
+    
     private void Start()
     {
-        
         Destroy(gameObject, lifeTime);
     }
 
