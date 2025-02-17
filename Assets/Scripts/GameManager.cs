@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,10 +21,32 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public GameObject enemySpawner;
     public GameObject bossShoot; // maybe this is extra
+    public GameObject ReadyTxt;
+    public GameObject FightTxt;
     public Image[] playerLivesImg;
 
     public void Awake(){
         NewGame();
+    }
+
+    public void Start()
+    {
+        StartCoroutine(DelayBeforeFight());
+    }
+
+    private IEnumerator DelayBeforeFight()
+    {
+        
+        ReadyTxt.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        ReadyTxt.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
+
+        FightTxt.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        FightTxt.gameObject.SetActive(false);
+
     }
 
     public void NewGame()

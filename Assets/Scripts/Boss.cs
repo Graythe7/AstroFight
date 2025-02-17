@@ -53,13 +53,18 @@ public class Boss : MonoBehaviour
         }
 
         // Shooting logic with random intervals
-        if (Time.time > nextShootTime) // Check if the current time has passed the next shoot time
+        if (Time.time > nextShootTime && Time.time > 3f) // Check if the current time has passed the next shoot time
         {
             Shoot();
             nextShootTime = Time.time + Random.Range(minFireRate, maxFireRate); // Set the next shoot time
         }
 
     }
+
+    //private void DelayShoot()
+    //{
+      //  Invoke(nameof(Shoot), 3f);   
+    //}
 
     public void Shoot()
     {

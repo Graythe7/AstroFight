@@ -17,7 +17,13 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        Invoke(nameof(StartSpawning), 3f); // add delay before the main attack
+    }
+
+    private void StartSpawning()
+    {
         StartCoroutine(SpawnEnemy());
+
     }
 
 
