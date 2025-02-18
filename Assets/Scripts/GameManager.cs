@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(DelayBeforeFight());
+       // StartCoroutine(DelayBeforeFight());
     }
 
     private IEnumerator DelayBeforeFight()
@@ -52,6 +53,8 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         Time.timeScale = 1;
+
+        StartCoroutine(DelayBeforeFight());
 
         playerLives = 3;
         bossHealth = 100; 
@@ -87,10 +90,13 @@ public class GameManager : MonoBehaviour
         player.transform.position = new Vector2(-6f, 0.0f);
         boss.transform.position = new Vector2(5f, 0f);
 
-       // SceneManager.LoadScene("Level-1"); 
-
     }
 
+    public void RetryGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level-1");
+    }
 
     public void PlayerDamage()
     {
@@ -144,7 +150,7 @@ public class GameManager : MonoBehaviour
 
         gameOverText.SetActive(true);
         retryButton.gameObject.SetActive(true);
-        //player.gameObject.SetActive(false);
+      
     }
 
     

@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour
     public float minY = -1.5f;
     public float maxY = 1.5f;
     private bool movingUp = true;
+    private bool canShoot = false;
     public float minAngle = -30f;
     public float maxAngle = 30f;
 
@@ -30,6 +31,18 @@ public class Boss : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(StartShootingDelay());
+    }
+
+    private IEnumerator StartShootingDelay()
+    {
+        yield return new WaitForSeconds(3.5f); //initial 3.5 second delay 
+        canShoot = true;
+        nextShootTime = Time.time + Random.Range(minFireRate, maxFireRate);
     }
 
     private void Update()
@@ -53,7 +66,7 @@ public class Boss : MonoBehaviour
         }
 
         // Shooting logic with random intervals
-        if (Time.time > nextShootTime && Time.time > 3f) // Check if the current time has passed the next shoot time
+        if (canShoot && Time.time > nextShootTime) // Check if the current time has passed the next shoot time
         {
             Shoot();
             nextShootTime = Time.time + Random.Range(minFireRate, maxFireRate); // Set the next shoot time
@@ -61,10 +74,6 @@ public class Boss : MonoBehaviour
 
     }
 
-    //private void DelayShoot()
-    //{
-      //  Invoke(nameof(Shoot), 3f);   
-    //}
 
     public void Shoot()
     {
