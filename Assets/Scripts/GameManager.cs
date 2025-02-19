@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public HealthBar healthBar;
     public Button retryButton;
+    public Button nextLevelButton;
     public TextMeshProUGUI winText;
     public GameObject gameOverText;
     public GameObject enemySpawner;
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
         gameOverText.SetActive(false);
         retryButton.gameObject.SetActive(false);
         winText.gameObject.SetActive(false);
+        nextLevelButton.gameObject.SetActive(false);
         player.gameObject.SetActive(true);
         boss.gameObject.SetActive(true);
         bossShoot.gameObject.SetActive(true);
@@ -95,7 +97,7 @@ public class GameManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Level-1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void PlayerDamage()
@@ -157,6 +159,7 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         winText.gameObject.SetActive(true);
+        nextLevelButton.gameObject.SetActive(true);
         bossShoot.gameObject.SetActive(false); 
         enemySpawner.gameObject.SetActive(false);
 
@@ -165,6 +168,7 @@ public class GameManager : MonoBehaviour
         InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
 
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("MiniEnemy"), true);
     }
 
     private void BossParticleEffect()
