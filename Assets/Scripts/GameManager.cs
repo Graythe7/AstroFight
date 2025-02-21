@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -29,11 +28,6 @@ public class GameManager : MonoBehaviour
 
     public void Awake(){
         NewGame();
-    }
-
-    public void Start()
-    {
-       // StartCoroutine(DelayBeforeFight());
     }
 
     private IEnumerator DelayBeforeFight()
@@ -152,7 +146,6 @@ public class GameManager : MonoBehaviour
 
         gameOverText.SetActive(true);
         retryButton.gameObject.SetActive(true);
-      
     }
 
     
