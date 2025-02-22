@@ -10853,6 +10853,7 @@ MonoBehaviour:
   backGround: {fileID: 1691467597}
   playerExplosion: {fileID: 1451452762}
   bossExplosion: {fileID: 532505652}
+  WinState: 0
   healthBar: {fileID: 1304541037}
   retryButton: {fileID: 1576632881}
   nextLevelButton: {fileID: 1437151633}
@@ -10895,6 +10896,7 @@ GameObject:
   - component: {fileID: 961036877}
   - component: {fileID: 961036876}
   - component: {fileID: 961036881}
+  - component: {fileID: 961036882}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Enemy
@@ -10916,14 +10918,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossAnimator: {fileID: 961036881}
   spriteRenderer: {fileID: 961036879}
-  firePoint: {fileID: 1882563232}
   gameManager: {fileID: 944124879}
-  bulletPrefab: {fileID: 3266479744115346168, guid: 7f274607fa67a4529b9ac17b8a397a03, type: 3}
   speed: 1
   minY: -1.5
   maxY: 1.5
-  minAngle: -20
-  maxAngle: 20
 --- !u!50 &961036877
 Rigidbody2D:
   serializedVersion: 4
@@ -11061,6 +11059,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &961036882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961036875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8799ad31c7fbb44cfb4364cb23c60a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1882563232}
+  bulletPrefab: {fileID: 3266479744115346168, guid: 7f274607fa67a4529b9ac17b8a397a03, type: 3}
+  gameManager: {fileID: 944124879}
+  minAngle: -30
+  maxAngle: 30
 --- !u!1 &1017981616
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,14 +13,15 @@ public class GameManager : MonoBehaviour
     public ParticleSystem bossExplosion;
 
     private int playerLives = 3;
-    private int bossHealth = 100; 
+    private int bossHealth = 100;
+    public bool WinState = false;
 
     public HealthBar healthBar;
     public Button retryButton;
     public Button nextLevelButton;
     public TextMeshProUGUI winText;
     public GameObject gameOverText;
-    public GameObject enemySpawner;
+    public GameObject enemySpawner; //
     public GameObject bossShoot; // maybe this is extra
     public GameObject ReadyTxt;
     public GameObject FightTxt;
@@ -52,7 +53,9 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayBeforeFight());
 
         playerLives = 3;
-        bossHealth = 100; 
+        bossHealth = 100;
+
+        WinState = false;
 
         healthBar.HealthUI(bossHealth);
         backGround.meshRenderer.material.mainTextureOffset = Vector2.zero;
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
         enemySpawner.gameObject.SetActive(true);
        
 
-
+        //
         GameObject[] miniEnemies = GameObject.FindGameObjectsWithTag("MiniEnemy");
         foreach (GameObject enemy in miniEnemies)
         {
@@ -160,8 +163,7 @@ public class GameManager : MonoBehaviour
 
         InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
 
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("MiniEnemy"), true);
+        WinState = true;
     }
 
     private void BossParticleEffect()

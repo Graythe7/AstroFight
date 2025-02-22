@@ -54,9 +54,12 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("MiniEnemy") || other.gameObject.CompareTag("EnemyBullet"))
+        if(gameManager.WinState == false)
         {
-            gameManager.PlayerDamage();
+            if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("MiniEnemy") || other.gameObject.CompareTag("EnemyBullet"))
+            {
+                gameManager.PlayerDamage();
+            }
         }
         
     }
