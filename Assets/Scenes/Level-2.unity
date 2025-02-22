@@ -545,32 +545,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 413386883}
-  - component: {fileID: 413386882}
   m_Layer: 0
   m_Name: miniBossSpawner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &413386882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413386881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2525ba85b0fe74153b6a8506a54eab9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  miniBossPrefab: {fileID: 6241600126064152473, guid: b7c7ec214578c4e7b8146ea8e5616b77, type: 3}
-  spawnPoint: {fileID: 413386883}
-  numberOfEnemiesToSpawn: 4
-  spacing: 1
-  minSpawnTime: 3
-  maxSpawnTime: 6
+  m_IsActive: 0
 --- !u!4 &413386883
 Transform:
   m_ObjectHideFlags: 0
@@ -10918,6 +10899,7 @@ MonoBehaviour:
   backGround: {fileID: 1334959144}
   playerExplosion: {fileID: 1451452762}
   bossExplosion: {fileID: 532505652}
+  WinState: 0
   healthBar: {fileID: 1304541037}
   retryButton: {fileID: 1576632881}
   nextLevelButton: {fileID: 809486820}
@@ -10960,6 +10942,7 @@ GameObject:
   - component: {fileID: 961036877}
   - component: {fileID: 961036881}
   - component: {fileID: 961036882}
+  - component: {fileID: 961036883}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Enemy
@@ -11117,14 +11100,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossAnimator: {fileID: 961036881}
   spriteRenderer: {fileID: 961036879}
-  firePoint: {fileID: 1475399655}
   gameManager: {fileID: 944124879}
-  bulletPrefab: {fileID: 1088657224434395749, guid: 3423a804026d945cd8b4d81d51e63fd0, type: 3}
   speed: 1
   minY: -1.5
   maxY: 1.5
-  minAngle: -30
-  maxAngle: 30
+--- !u!114 &961036883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961036875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8c3b9f779d047fd808ff0ab6fa9d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1475399655}
+  bulletPrefab: {fileID: 1088657224434395749, guid: 3423a804026d945cd8b4d81d51e63fd0, type: 3}
+  gameManager: {fileID: 944124879}
 --- !u!1 &1017981616
 GameObject:
   m_ObjectHideFlags: 0
@@ -11733,7 +11727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334959142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2696, y: 0.3088, z: 1}
+  m_LocalPosition: {x: 3.2696, y: 0.3088, z: 9}
   m_LocalScale: {x: 15.036745, y: 8.476351, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16833,7 +16827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475399654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.121, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -17,11 +17,11 @@ TagManager:
   - Water
   - UI
   - Player
-  - Bullet
+  - EnemyBullet
   - Enemy
   - Boss
   - MiniEnemy
-  - EnemyBullet
+  - Bullet
   - PlayerWinState
   - 
   - 

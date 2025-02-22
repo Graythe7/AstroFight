@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 3266479744115346168}
   - component: {fileID: 9175268573055204094}
   - component: {fileID: 7488633455900592855}
-  m_Layer: 11
+  m_Layer: 7
   m_Name: BulletBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3266479744115346169
 Transform:

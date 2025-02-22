@@ -17,7 +17,6 @@ public class Boss1_Shoot : MonoBehaviour
     public float minAngle = -30f;
     public float maxAngle = 30f;
 
-    
 
     private void Start()
     {
