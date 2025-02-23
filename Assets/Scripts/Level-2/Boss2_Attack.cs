@@ -1,53 +1,63 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss2_Attack : MonoBehaviour
 {
+    public Animator bossAnimator;
+    public Boss bossMovement;
     public Transform firePoint;
     public Bullet bulletPrefab;
     public GameManager gameManager;
 
-
-    // Variables for shooting intervals
-    private float nextShootTime = 0f; // Time when the next shot can occur
-    private float minFireRate = 2f; // Minimum interval between shots
-    private float maxFireRate = 4f; // Maximum interval between shots
-
+    public float bulletSpace = 1f; // Adjust bullet spacing
+    private float minFireRate = 2f;
+    private float maxFireRate = 4f;
 
     private void Start()
     {
         StartCoroutine(StartShootingDelay());
-        Invoke(nameof(StartShoot), 2.5f);
     }
 
     private IEnumerator StartShootingDelay()
     {
-        yield return new WaitForSeconds(3.5f); //initial 3.5 second delay 
-        //canShoot = true;
-        nextShootTime = Time.time + Random.Range(minFireRate, maxFireRate);
+        yield return new WaitForSeconds(3.5f); // Initial delay
+        StartShoot(); // Start firing after delay
     }
 
     private void StartShoot()
     {
-         StartCoroutine(Shoot());
+        InvokeRepeating(nameof(ShootRoutine), 2.5f, Random.Range(minFireRate, maxFireRate));
+    }
+
+    private void ShootRoutine()
+    {
+        if (!gameManager.WinState) // Stop shooting if the game is won
+        {
+            StartCoroutine(Shoot());
+        }
+        else
+        {
+            CancelInvoke(nameof(ShootRoutine)); // Stop shooting if the boss is defeated
+        }
     }
 
     public IEnumerator Shoot()
     {
-        if (gameManager.WinState == false)
+        bossMovement.MovementPause(false);
+        bossAnimator.SetBool("isBossShooting", true);
+
+        yield return new WaitForSeconds(0.6f);// wait before shooting 
+
+        for (int i = -2; i <= 2; i++) // Spread bullets vertically
         {
-            for (int i = 0; i < 5; i++)
-            {
-                Vector2 spawnPosition = new Vector2(firePoint.position.x + i, firePoint.position.y);
-                Bullet bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
-                bullet.Project(Vector2.left);
-            }
-
-            //float spawnDelay = Random.Range(minFireRate, maxFireRate);
-            yield return new WaitForSeconds(2f);
-
+            Vector2 spawnPosition = new Vector2(firePoint.position.x + (i * bulletSpace), firePoint.position.y);
+            Bullet bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+            bullet.Project(Vector2.left);
         }
 
+        bossMovement.MovementPause(true);
+        bossAnimator.SetBool("isBossShooting", false);
+
+        yield return new WaitForSeconds(Random.Range(minFireRate, maxFireRate));
     }
 }

@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour
     public float minY = -1.5f;
     public float maxY = 1.5f;
     private bool movingUp = true;
+    private bool canMove = true;
   
 
     private void Awake()
@@ -24,21 +25,25 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
-        if (movingUp)
+        if (canMove)
         {
-            transform.Translate(speed * Time.deltaTime * Vector2.up);
-
-            if(transform.position.y >= maxY)
+            if (movingUp)
             {
-                movingUp = false;
+                transform.Translate(speed * Time.deltaTime * Vector2.up);
+
+                if (transform.position.y >= maxY)
+                {
+                    movingUp = false;
+                }
             }
-        }else if (!movingUp)
-        {
-            transform.Translate(speed * Time.deltaTime * Vector2.down);
-
-            if (transform.position.y <= minY)
+            else if (!movingUp)
             {
-                movingUp = true;
+                transform.Translate(speed * Time.deltaTime * Vector2.down);
+
+                if (transform.position.y <= minY)
+                {
+                    movingUp = true;
+                }
             }
         }
     }
@@ -60,6 +65,11 @@ public class Boss : MonoBehaviour
     public void BossDead(bool isBossDead)
     {
         bossAnimator.SetBool("isBossDead", isBossDead);
+    }
+
+    public void MovementPause(bool value)
+    {
+        canMove = value;
     }
 
     

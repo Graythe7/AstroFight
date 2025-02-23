@@ -11116,9 +11116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8c3b9f779d047fd808ff0ab6fa9d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 961036881}
+  bossMovement: {fileID: 961036882}
   firePoint: {fileID: 1475399655}
   bulletPrefab: {fileID: 1088657224434395749, guid: 3423a804026d945cd8b4d81d51e63fd0, type: 3}
   gameManager: {fileID: 944124879}
+  bulletSpace: 1
 --- !u!1 &1017981616
 GameObject:
   m_ObjectHideFlags: 0
@@ -16827,7 +16830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475399654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.121, z: -2}
+  m_LocalPosition: {x: -0.4, y: 0.129, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
