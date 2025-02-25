@@ -7,6 +7,7 @@ public class Boss2_Attack : MonoBehaviour
     public Boss bossMovement;
     public Transform firePoint;
     public Bullet bulletPrefab;
+    public Bomb bombPrefab;
     public GameManager gameManager;
 
     public float bulletSpace = 1f; // Adjust bullet spacing
@@ -33,7 +34,16 @@ public class Boss2_Attack : MonoBehaviour
     {
         if (!gameManager.WinState) // Stop shooting if the game is won
         {
-            StartCoroutine(Shoot());
+            if(gameManager.bossHealth >= 50)
+            {
+                StartCoroutine(Shoot());
+            }
+            else
+            {
+                StartCoroutine(Bombing());
+            }
+
+            
         }
         else
         {
@@ -59,5 +69,19 @@ public class Boss2_Attack : MonoBehaviour
         bossAnimator.SetBool("isBossShooting", false);
 
         yield return new WaitForSeconds(Random.Range(minFireRate, maxFireRate));
+    }
+
+    public IEnumerator Bombing()
+    {
+        bossMovement.MovementPause(false);
+        bossAnimator.SetBool("isBossShooting", true);
+
+        yield return new WaitForSeconds(0.6f);
+
+        Instantiate(bombPrefab, firePoint.transform.position, Quaternion.identity);
+
+        bossMovement.MovementPause(true);
+        bossAnimator.SetBool("isBossShooting", false);
+        yield return new WaitForSeconds(3f);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MiniEnemy2_Missile : MonoBehaviour
 {
     private GameObject player;
-    //private Animator animator;
+    public Animator animator;
     private float playerTargetX;
     private bool reachedTargetX = false; // to check if it has reach the players x position
 
@@ -14,6 +14,11 @@ public class MiniEnemy2_Missile : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindWithTag("Player"); //Cause you can't reference a gameObject in scene in a prefab
+
+        animator = GetComponent<Animator>();
+
+        animator.Play("Missile_idle");
+
         Destroy(gameObject, 7.0f);
     }
 
@@ -32,7 +37,7 @@ public class MiniEnemy2_Missile : MonoBehaviour
 
             if (Mathf.Abs(transform.position.x - playerTargetX) < 0.1f) // Small tolerance to avoid precision issues
             {
-                reachedTargetX = true; // Now move upwards
+                reachedTargetX = true; 
             }
         }
         else if(reachedTargetX == true)
@@ -41,7 +46,6 @@ public class MiniEnemy2_Missile : MonoBehaviour
             transform.Translate(speed * Time.deltaTime * Vector2.left);
         }
 
-        
     }
 
     private void OnCollisionEnter2D(Collision2D other)

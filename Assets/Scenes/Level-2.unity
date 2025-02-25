@@ -10868,6 +10868,7 @@ MonoBehaviour:
   backGround: {fileID: 1334959144}
   playerExplosion: {fileID: 1451452762}
   bossExplosion: {fileID: 532505652}
+  bossHealth: 100
   WinState: 0
   healthBar: {fileID: 1304541037}
   retryButton: {fileID: 1576632881}
@@ -11090,6 +11091,7 @@ MonoBehaviour:
   bossMovement: {fileID: 961036882}
   firePoint: {fileID: 1475399655}
   bulletPrefab: {fileID: 1088657224434395749, guid: 3423a804026d945cd8b4d81d51e63fd0, type: 3}
+  bombPrefab: {fileID: -4901860005180423612, guid: bb7abb46d0ab3467a9a6d5dadfd58ec7, type: 3}
   gameManager: {fileID: 944124879}
   bulletSpace: 1
 --- !u!1 &1017981616
