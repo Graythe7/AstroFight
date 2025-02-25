@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     public Button nextLevelButton;
     public TextMeshProUGUI winText;
     public GameObject gameOverText;
-    public GameObject enemySpawner; //
-    public GameObject bossShoot; // maybe this is extra
+    public GameObject[] enemySpawner; //
+    public GameObject bossShoot; 
     public GameObject ReadyTxt;
     public GameObject FightTxt;
     public Image[] playerLivesImg;
@@ -70,10 +70,7 @@ public class GameManager : MonoBehaviour
         player.gameObject.SetActive(true);
         boss.gameObject.SetActive(true);
         bossShoot.gameObject.SetActive(true);
-        enemySpawner.gameObject.SetActive(true);
-       
-
-        //
+        
         GameObject[] miniEnemies = GameObject.FindGameObjectsWithTag("MiniEnemy");
         foreach (GameObject enemy in miniEnemies)
         {
@@ -85,6 +82,8 @@ public class GameManager : MonoBehaviour
         {
             playerLivesImg[i].enabled = true;
         }
+
+        SpawnerActive(true);
 
         player.transform.position = new Vector2(-6f, 0.0f);
         boss.transform.position = new Vector2(5f, 0f);
@@ -156,8 +155,8 @@ public class GameManager : MonoBehaviour
     {
         winText.gameObject.SetActive(true);
         nextLevelButton.gameObject.SetActive(true);
-        bossShoot.gameObject.SetActive(false); 
-        enemySpawner.gameObject.SetActive(false);
+        bossShoot.gameObject.SetActive(false);
+        SpawnerActive(false);
 
         boss.enabled = false;
 
@@ -174,5 +173,15 @@ public class GameManager : MonoBehaviour
         bossExplosion.transform.position = effectPosition;
         bossExplosion.Play();
     }
+
+    private void SpawnerActive(bool value)
+    {
+        foreach (GameObject spawner in enemySpawner)
+        {
+            spawner.SetActive(value);
+        }
+    }
+
+   
 
 }

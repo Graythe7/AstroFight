@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public GameObject miniBossPrefab;
     public Transform spawnPoint;
     private Transform player;
+
     public int numberOfEnemiesToSpawn = 4;
     public float spacing = 1.0f;
     public float minSpawnTime = 3.0f;

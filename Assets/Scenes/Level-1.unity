@@ -10859,7 +10859,8 @@ MonoBehaviour:
   nextLevelButton: {fileID: 1437151633}
   winText: {fileID: 363786463}
   gameOverText: {fileID: 1606791112}
-  enemySpawner: {fileID: 413386881}
+  enemySpawner:
+  - {fileID: 413386881}
   bossShoot: {fileID: 1882563231}
   ReadyTxt: {fileID: 178381200}
   FightTxt: {fileID: 1289502377}
