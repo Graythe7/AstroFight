@@ -5,14 +5,21 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     private GameObject player;
+    public GameObject spikePrefab;
+    private SpriteRenderer spriteRenderer;
     public float speed = 5f;
+    public float spikeSpeed = 1f;
     public float lifeTime = 7f;
-    public float playerTargetX;
+    private float playerTargetX;
     private bool reachedTargetX = false;
+    private bool spikesSpawned = false;
+
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = true;
     }
 
     private void Update()
@@ -33,16 +40,28 @@ public class Bomb : MonoBehaviour
                 reachedTargetX = true;
             }
         }
-        else if (reachedTargetX == true)
+        else if (reachedTargetX == true && spikesSpawned == false)
         {
-            Destroy(gameObject);
+            spriteRenderer.enabled = false;
             CreateSpikes();
+            spikesSpawned = true; // cause shoot function is called in Update/ every frame
         }
     }
 
     private void CreateSpikes()
     {
+        float[] angles = new float[] { 0f, 45f, 90f, 135f, 180f,225f, -90f };
 
+        foreach (float angle in angles)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            GameObject bullet = Instantiate(spikePrefab, transform.position, rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            
+            rb.velocity = rotation * Vector2.right * spikeSpeed;
+        }
+
+        spikesSpawned = false;
     }
 
 }

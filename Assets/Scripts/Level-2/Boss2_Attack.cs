@@ -42,8 +42,6 @@ public class Boss2_Attack : MonoBehaviour
             {
                 StartCoroutine(Bombing());
             }
-
-            
         }
         else
         {
@@ -82,6 +80,6 @@ public class Boss2_Attack : MonoBehaviour
 
         bossMovement.MovementPause(true);
         bossAnimator.SetBool("isBossShooting", false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
     }
 }

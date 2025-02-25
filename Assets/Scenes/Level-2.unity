@@ -264,7 +264,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &178381200
 GameObject:
@@ -567,7 +567,7 @@ Transform:
   - {fileID: 1334959143}
   - {fileID: 790813431}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428879190
 GameObject:
@@ -5702,9 +5702,9 @@ GameObject:
   m_Component:
   - component: {fileID: 678651021}
   - component: {fileID: 678651022}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Top Boundry
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10868,7 +10868,7 @@ MonoBehaviour:
   backGround: {fileID: 1334959144}
   playerExplosion: {fileID: 1451452762}
   bossExplosion: {fileID: 532505652}
-  bossHealth: 100
+  bossHealth: 56
   WinState: 0
   healthBar: {fileID: 1304541037}
   retryButton: {fileID: 1576632881}
@@ -11104,9 +11104,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1017981617}
   - component: {fileID: 1017981618}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 'Left Boundry '
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11429,7 +11429,7 @@ RectTransform:
   - {fileID: 178381201}
   - {fileID: 1289502378}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17371,7 +17371,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1974070078
 MonoBehaviour:
@@ -17472,9 +17472,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1993624550}
   - component: {fileID: 1993624551}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 'Right Boundry '
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17530,9 +17530,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2066682360}
   - component: {fileID: 2066682361}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 'Bottom Boundry '
-  m_TagString: Untagged
+  m_TagString: Boundry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
