@@ -5,8 +5,9 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     private GameObject player;
-    public GameObject spikePrefab;
+    public Bullet spikePrefab;
     private SpriteRenderer spriteRenderer;
+
     public float speed = 5f;
     public float spikeSpeed = 1f;
     public float lifeTime = 7f;
@@ -29,7 +30,7 @@ public class Bomb : MonoBehaviour
 
     public void Shoot()
     {
-        playerTargetX = player.transform.position.x;
+        playerTargetX = player.transform.position.x+1;
         
         if (reachedTargetX == false)
         {
@@ -50,15 +51,13 @@ public class Bomb : MonoBehaviour
 
     private void CreateSpikes()
     {
-        float[] angles = new float[] { 0f, 45f, 90f, 135f, 180f,225f, -90f };
+        float[] angles = new float[] { 0f, 45f, 90f, 135f, 180f,225f, -45f, -90f};
 
         foreach (float angle in angles)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, angle);
-            GameObject bullet = Instantiate(spikePrefab, transform.position, rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            
-            rb.velocity = rotation * Vector2.right * spikeSpeed;
+            Bullet bullet = Instantiate(spikePrefab, transform.position, rotation);
+            bullet.Project(rotation * Vector2.left);
         }
 
         spikesSpawned = false;

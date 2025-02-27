@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1935691921362278223}
   - component: {fileID: 6360517778479897862}
   - component: {fileID: 2941988121675300577}
+  - component: {fileID: -5451663625939244851}
   m_Layer: 10
   m_Name: SpikeBomb
   m_TagString: MiniEnemy
@@ -26,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3329604466162973947}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1354, y: -0.1308, z: -0.047139302}
   m_LocalScale: {x: 1.369996, y: 0.4106925, z: 0.7459}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1935691921362278223
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133,3 +134,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5451663625939244851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329604466162973947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d15ced7aa91490788a93bec3cb662d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 120
+  lifetime: 5

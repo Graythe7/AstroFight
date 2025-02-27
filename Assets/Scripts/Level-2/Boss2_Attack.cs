@@ -34,7 +34,7 @@ public class Boss2_Attack : MonoBehaviour
     {
         if (!gameManager.WinState) // Stop shooting if the game is won
         {
-            if(gameManager.bossHealth >= 50)
+            if(gameManager.bossHealth >= 60)
             {
                 StartCoroutine(Shoot());
             }
@@ -80,6 +80,8 @@ public class Boss2_Attack : MonoBehaviour
 
         bossMovement.MovementPause(true);
         bossAnimator.SetBool("isBossShooting", false);
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(80f);
+
+        StartCoroutine(Bombing());
     }
 }

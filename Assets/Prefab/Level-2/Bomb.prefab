@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfa2951c1af44555a7165a03e9455ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spikePrefab: {fileID: 3329604466162973947, guid: ac98546befab74dd480579b9bdfa14ff, type: 3}
+  spikePrefab: {fileID: -5451663625939244851, guid: ac98546befab74dd480579b9bdfa14ff, type: 3}
   speed: 5
   spikeSpeed: 1
   lifeTime: 7
@@ -109,7 +109,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5484554359421326257}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
