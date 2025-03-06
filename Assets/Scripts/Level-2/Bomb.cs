@@ -25,6 +25,8 @@ public class Bomb : MonoBehaviour
 
     private void Update()
     {
+        float t = Mathf.PingPong(Time.time *0.5f, 1);
+        spriteRenderer.color = Color.Lerp(Color.white, Color.red, t);
         Shoot();
     }
 
@@ -36,7 +38,7 @@ public class Bomb : MonoBehaviour
         {
             transform.Translate(speed * Time.deltaTime * Vector2.left);
 
-            if (Mathf.Abs(transform.position.x - playerTargetX) < 0.1f) // Small tolerance to avoid precision issues
+            if (Mathf.Abs(transform.position.x - playerTargetX) < 0.5f) // Small tolerance to avoid precision issues
             {
                 reachedTargetX = true;
             }

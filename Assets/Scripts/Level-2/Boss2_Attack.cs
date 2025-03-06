@@ -10,7 +10,7 @@ public class Boss2_Attack : MonoBehaviour
     public Bomb bombPrefab;
     public GameManager gameManager;
 
-    public float bulletSpace = 1f; // Adjust bullet spacing
+    private float bulletSpace = 1f; 
     private float minFireRate = 2f;
     private float maxFireRate = 4f;
 

@@ -643,7 +643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449462760}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -450, y: -260, z: -10}
+  m_LocalPosition: {x: -420, y: -280, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10853,6 +10853,7 @@ MonoBehaviour:
   backGround: {fileID: 1691467597}
   playerExplosion: {fileID: 1451452762}
   bossExplosion: {fileID: 532505652}
+  bossHealth: 100
   WinState: 0
   healthBar: {fileID: 1304541037}
   retryButton: {fileID: 1576632881}

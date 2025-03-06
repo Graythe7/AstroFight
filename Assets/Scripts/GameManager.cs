@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public ParticleSystem bossExplosion;
 
     private int playerLives = 3;
-    public int bossHealth = 100;
+    public int bossHealth = 100; 
     public bool WinState = false;
 
     public HealthBar healthBar;
