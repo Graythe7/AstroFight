@@ -5,13 +5,13 @@ using UnityEngine;
 public class UFO : MonoBehaviour
 {
     public GameObject UFOlights;
-    private Player player;
+    private GameObject player;
     public float speed = 2.5f;
 
     private void Start()
     {
         UFOlights.SetActive(false);
-        player = FindObjectOfType<Player>();
+        player = GameObject.FindWithTag("Player");
     }
 
 
@@ -19,9 +19,10 @@ public class UFO : MonoBehaviour
     {
         transform.Translate(speed * Time.deltaTime * Vector2.left);
 
-        if(player.transform.position.x <= UFOlights.transform.position.x)
+        if(player.transform.position.x + 2 >= UFOlights.transform.position.x)
         {
-           // UFOlights.SetActive(true);
+            Debug.Log("player's postition" + player.transform.position.x);
+            UFOlights.SetActive(true);
         }
     }
 }
