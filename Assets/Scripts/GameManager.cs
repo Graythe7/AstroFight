@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public Button nextLevelButton;
     public TextMeshProUGUI winText;
     public GameObject gameOverText;
-    public GameObject[] enemySpawner; //
+    public GameObject[] enemySpawner; 
     public GameObject bossShoot; 
     public GameObject ReadyTxt;
     public GameObject FightTxt;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayBeforeFight());
 
         playerLives = 3;
-        bossHealth = 100;
+        bossHealth = 10; //change back !!!!!!
 
         WinState = false;
 
