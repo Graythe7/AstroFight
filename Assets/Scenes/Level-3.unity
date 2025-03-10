@@ -10992,7 +10992,7 @@ MonoBehaviour:
   backGround: {fileID: 1334959144}
   playerExplosion: {fileID: 1451452762}
   bossExplosion: {fileID: 532505652}
-  bossHealth: 56
+  bossHealth: 100
   WinState: 0
   healthBar: {fileID: 1304541037}
   retryButton: {fileID: 1576632881}
