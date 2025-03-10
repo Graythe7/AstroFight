@@ -29,7 +29,8 @@ public class ElectricBall : MonoBehaviour
 
     private void Update()
     {
-         
+        transform.Rotate(0, 0, 200 * Time.deltaTime);
+
         Vector2 movement = Vector2.left * speed * Time.deltaTime;
         float y = startPosition.y + Mathf.Sin(Time.time * frequency) * amplitude; 
 
