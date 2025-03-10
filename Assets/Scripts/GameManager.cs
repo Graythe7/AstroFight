@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayBeforeFight());
 
         playerLives = 3;
-        bossHealth = 10; //change back !!!!!!
+        bossHealth = 100; 
 
         WinState = false;
 
