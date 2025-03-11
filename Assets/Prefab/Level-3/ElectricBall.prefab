@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f8709cbd6b54dc1b949c0605d98fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 0.3510926, g: 0.11454255, b: 0.6226415, a: 1}
+  color1: {r: 0.6051183, g: 0, b: 1, a: 1}
   color2: {r: 0.033018887, g: 1, b: 0.9203366, a: 1}
   color3: {r: 0, g: 1, b: 0.7164221, a: 1}
 --- !u!61 &4572361328540682489

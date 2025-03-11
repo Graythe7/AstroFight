@@ -21,6 +21,7 @@ public class Bomb : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = true;
+        Destroy(gameObject, 10f);
     }
 
     private void Update()

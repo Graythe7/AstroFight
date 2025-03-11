@@ -5,14 +5,27 @@ using UnityEngine;
 public class UfoSpawner : MonoBehaviour
 {
     public GameObject ufoPrefab;
+    private float spawnDelay;
+    public float minSpawnTime = 1.0f;
+    public float maxSpawnTime = 2.0f;
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnUfo), 10f, 5f);
+        Invoke(nameof(StartSpawning), 5f);
     }
 
-    private void SpawnUfo()
+    private void StartSpawning()
     {
-        Instantiate(ufoPrefab, gameObject.transform.position, Quaternion.identity);
+        StartCoroutine(SpawnUfo());
+    }
+
+    private IEnumerator SpawnUfo()
+    {
+        while (true)
+        {
+            Instantiate(ufoPrefab, gameObject.transform.position, Quaternion.identity);
+            spawnDelay = Random.Range(minSpawnTime, maxSpawnTime);
+            yield return new WaitForSeconds(spawnDelay);
+        }
     }
 }

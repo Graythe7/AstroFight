@@ -176,11 +176,11 @@ public class GameManager : MonoBehaviour
 
     private void SpawnerActive(bool value)
     {
-        foreach (GameObject spawner in enemySpawner)
+        for (int i = 0; i < enemySpawner.Length; i++)
         {
-            Debug.Log("Spawner active called"); // delete later
-            spawner.SetActive(value);
+            enemySpawner[i].SetActive(value);
         }
+
     }
 
    

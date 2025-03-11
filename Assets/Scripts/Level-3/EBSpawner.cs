@@ -10,15 +10,24 @@ public class EBSpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnEB), 3.0f, 1.5f); 
+        Invoke(nameof(StartSpawning), 3.0f); 
     }
 
-    private void SpawnEB()
+    private void StartSpawning()
     {
-        float curY = Random.Range(minY, maxY);
-        Vector2 spawnPosition = new Vector2(8, curY); // pick spawn position for each prefab
+        StartCoroutine(SpawnEB());
+    }
 
-        Instantiate(electricBall, spawnPosition, Quaternion.identity);
+    private IEnumerator SpawnEB()
+    {
+        while (true)
+        {
+            float curY = Random.Range(minY, maxY);
+            Vector2 spawnPosition = new Vector2(8, curY); // pick spawn position for each prefab
+
+            Instantiate(electricBall, spawnPosition, Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+        }
     }
 
 }

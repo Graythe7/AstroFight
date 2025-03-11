@@ -5801,6 +5801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ufoPrefab: {fileID: 8875668767077787760, guid: fd875565e279c482e91b23736c410843, type: 3}
+  minSpawnTime: 3
+  maxSpawnTime: 6
 --- !u!4 &570439094
 Transform:
   m_ObjectHideFlags: 0
@@ -16927,7 +16929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 615160147054737941, guid: d9b30dc00b32a43408a60f419985310d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9212284064631580390, guid: d9b30dc00b32a43408a60f419985310d, type: 3}
       propertyPath: m_RootOrder
