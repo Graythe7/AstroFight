@@ -401,51 +401,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178381200}
   m_CullTransparentMesh: 1
---- !u!1 &290216667
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 290216668}
-  - component: {fileID: 290216669}
-  m_Layer: 0
-  m_Name: EB-Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &290216668
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290216667}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: -0.037212655, z: 0.06899835}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &290216669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290216667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e2c3ddd3a9a84be2a11d749bab306cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  electricBall: {fileID: 7908051683655646629, guid: 4a24b6adc1e7a419c90102014233172e, type: 3}
 --- !u!1 &363786461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,53 +5726,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &570439092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 570439094}
-  - component: {fileID: 570439093}
-  m_Layer: 0
-  m_Name: UFO-Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &570439093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570439092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bf9e183c77de4bed91979372209201f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ufoPrefab: {fileID: 8875668767077787760, guid: fd875565e279c482e91b23736c410843, type: 3}
-  minSpawnTime: 3
-  maxSpawnTime: 6
---- !u!4 &570439094
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570439092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.71, y: 3.36, z: 0.024071176}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &678651019
 GameObject:
   m_ObjectHideFlags: 0
@@ -11002,8 +10910,8 @@ MonoBehaviour:
   winText: {fileID: 363786463}
   gameOverText: {fileID: 1606791112}
   enemySpawner:
-  - {fileID: 290216667}
-  - {fileID: 570439092}
+  - {fileID: 0}
+  - {fileID: 0}
   bossShoot: {fileID: 1475399654}
   ReadyTxt: {fileID: 178381200}
   FightTxt: {fileID: 1289502377}
@@ -11154,7 +11062,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961036875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.76, y: 0, z: 0}
+  m_LocalPosition: {x: 4.76, y: 0.18, z: 0}
   m_LocalScale: {x: 5, y: 5.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

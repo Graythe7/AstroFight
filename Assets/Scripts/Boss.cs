@@ -15,6 +15,7 @@ public class Boss : MonoBehaviour
     public float maxY = 1.5f;
     private bool movingUp = true;
     private bool canMove = true;
+    private bool movingDownL3 = false;
   
 
     private void Awake()
@@ -46,6 +47,16 @@ public class Boss : MonoBehaviour
                 }
             }
         }
+
+        if (movingDownL3 && transform.position.y >= -6) //moving downward at the end of level-3 phase1 
+        {
+            transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y - (0.5f * Time.deltaTime), // Moves down at 2 units/sec
+                transform.position.z
+            );
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -67,10 +78,16 @@ public class Boss : MonoBehaviour
         bossAnimator.SetBool("isBossDead", isBossDead);
     }
 
-    public void MovementPause(bool value)
+    public void MovementPause(bool value) //used in level-2 shoot 
     {
         canMove = value;
     }
+
+    public void Level3Phase1End(bool value)
+    {
+        movingDownL3 = value;
+    }
+
 
     
 }

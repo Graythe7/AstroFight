@@ -153,16 +153,27 @@ public class GameManager : MonoBehaviour
     
     public void WinGame()
     {
-        winText.gameObject.SetActive(true);
-        nextLevelButton.gameObject.SetActive(true);
         bossShoot.gameObject.SetActive(false);
         SpawnerActive(false);
-
-        boss.enabled = false;
 
         InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
 
         WinState = true;
+
+        if (SceneManager.GetActiveScene().name == "Level-3")
+        {
+            boss.MovementPause(false);
+            boss.Level3Phase1End(true);
+
+            Invoke(nameof(LoadNextLevel), 15f); // change the time waiting for the phase1-2 transition
+        }
+        else
+        {
+            winText.gameObject.SetActive(true);
+            nextLevelButton.gameObject.SetActive(true);
+            boss.enabled = false;
+        }
+ 
     }
 
     private void BossParticleEffect()
@@ -183,6 +194,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-   
+    //this function is for level-3 phase1 to phase 2 transition
+    private void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load next level
+    }
 
 }
