@@ -165,8 +165,11 @@ public class GameManager : MonoBehaviour
             boss.MovementPause(false);
             boss.Level3Phase1End(true);
 
+
+            SceneManager.LoadScene("Level-3-Phase2", LoadSceneMode.Additive);
+
             Invoke(nameof(NewGameL3Phase2), 17f);
-           
+
         }
         else
         {
