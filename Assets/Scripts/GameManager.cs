@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour
     public Background backGround;
     public ParticleSystem playerExplosion;
     public ParticleSystem bossExplosion;
-
+   
     private int playerLives = 3;
     public int bossHealth = 100; 
     public bool WinState = false;
+    private int BossL3Phase = 1;
 
     public HealthBar healthBar;
     public Button retryButton;
@@ -53,9 +54,10 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayBeforeFight());
 
         playerLives = 3;
-        bossHealth = 100; 
+        bossHealth = 10; // change it back !!  
 
         WinState = false;
+        BossL3Phase = 1;
 
         healthBar.HealthUI(bossHealth);
         backGround.meshRenderer.material.mainTextureOffset = Vector2.zero;
@@ -155,20 +157,20 @@ public class GameManager : MonoBehaviour
     {
         bossShoot.gameObject.SetActive(false);
         SpawnerActive(false);
-
-        InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
-
+        
         WinState = true;
 
-        if (SceneManager.GetActiveScene().name == "Level-3")
+        if (SceneManager.GetActiveScene().name == "Level-3" && BossL3Phase == 1)
         {
             boss.MovementPause(false);
             boss.Level3Phase1End(true);
 
-            Invoke(nameof(LoadNextLevel), 15f); // change the time waiting for the phase1-2 transition
+            Invoke(nameof(NewGameL3Phase2), 17f);
+           
         }
         else
         {
+            InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
             winText.gameObject.SetActive(true);
             nextLevelButton.gameObject.SetActive(true);
             boss.enabled = false;
@@ -198,6 +200,45 @@ public class GameManager : MonoBehaviour
     private void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load next level
+    }
+
+    public void NewGameL3Phase2()
+    {
+        Time.timeScale = 1;
+
+        playerLives = 3;
+        bossHealth = 100;
+
+        WinState = false;
+        BossL3Phase = 2;
+
+        healthBar.HealthUI(bossHealth);
+
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        boss.BossDead(false);
+
+        gameOverText.SetActive(false);
+        retryButton.gameObject.SetActive(false);
+        winText.gameObject.SetActive(false);
+        nextLevelButton.gameObject.SetActive(false);
+        player.gameObject.SetActive(true);
+        boss.gameObject.SetActive(true);
+        bossShoot.gameObject.SetActive(true);
+
+        GameObject[] miniEnemies = GameObject.FindGameObjectsWithTag("MiniEnemy");
+        foreach (GameObject enemy in miniEnemies)
+        {
+            Destroy(enemy);
+        }
+
+        //the player live images on top left corner 
+        for (int i = 0; i < 3; i++)
+        {
+            playerLivesImg[i].enabled = true;
+        }
+
+        SpawnerActive(true);
+
     }
 
 }

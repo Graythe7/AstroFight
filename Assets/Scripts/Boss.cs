@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour
     private bool movingUp = true;
     private bool canMove = true;
     private bool movingDownL3 = false;
+    private bool movingUpTransition = false;
   
 
     private void Awake()
@@ -26,38 +27,79 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
-        if (canMove)
+        if (canMove) //canMove is checked if boss is paused 
         {
-            if (movingUp)
-            {
-                transform.Translate(speed * Time.deltaTime * Vector2.up);
-
-                if (transform.position.y >= maxY)
-                {
-                    movingUp = false;
-                }
-            }
-            else if (!movingUp)
-            {
-                transform.Translate(speed * Time.deltaTime * Vector2.down);
-
-                if (transform.position.y <= minY)
-                {
-                    movingUp = true;
-                }
-            }
+            DefaultMovement();
         }
 
-        if (movingDownL3 && transform.position.y >= -6) //moving downward at the end of level-3 phase1 
+        if (movingDownL3) //moving downward at the end of level-3 phase1 
         {
-            transform.position = new Vector3(
-                transform.position.x,
-                transform.position.y - (0.5f * Time.deltaTime), // Moves down at 2 units/sec
-                transform.position.z
-            );
+            MoveDownAtEndOfPhase();
+
+        }
+        if (movingUpTransition) //move upward with new animation 
+        {
+            MoveUpTransition();
         }
 
     }
+
+    private void DefaultMovement()
+    {
+        if (movingUp)
+        {
+            transform.Translate(speed * Time.deltaTime * Vector2.up);
+
+            if (transform.position.y >= maxY)
+            {
+                movingUp = false;
+            }
+        }
+        else if (!movingUp)
+        {
+            transform.Translate(speed * Time.deltaTime * Vector2.down);
+
+            if (transform.position.y <= minY)
+            {
+                movingUp = true;
+            }
+        }
+    }
+
+    private void MoveDownAtEndOfPhase()
+    {
+        
+        if (transform.position.y >= -8)
+        {
+            transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y - (0.5f * Time.deltaTime), // Moves down slowly
+                transform.position.z
+            );
+
+            if (transform.position.y <= -6.5f)
+            {
+                bossAnimator.SetBool("phase2Active", true);
+                speed = 1.5f;
+                movingDownL3 = false;
+                movingUpTransition = true; // to trigger the transition 
+            }
+        }
+    }
+
+    private void MoveUpTransition()
+    {
+        if (transform.position.y <= 0f)
+        {
+            transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y + (1f * Time.deltaTime), // Moves down slowly
+                transform.position.z
+            );
+
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -88,6 +130,7 @@ public class Boss : MonoBehaviour
         movingDownL3 = value;
     }
 
+    
 
     
 }
