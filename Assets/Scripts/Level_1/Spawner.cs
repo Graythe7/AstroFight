@@ -27,7 +27,6 @@ public class Spawner : MonoBehaviour
 
     }
 
-
     private IEnumerator SpawnEnemy()
     {
         while (true)

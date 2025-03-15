@@ -229,7 +229,9 @@ public class GameManager : MonoBehaviour
         player.GetComponent<SpriteRenderer>().enabled = true;
 
         boss.BossDead(false);
-        //boss.Level3Phase1End(false);
+        boss.Level3Phase1End(false); //it turns the movingDownL3 = false in boss script
+        boss.MovementPause(true);
+
 
         gameOverText.SetActive(false);
         retryButton.gameObject.SetActive(false);

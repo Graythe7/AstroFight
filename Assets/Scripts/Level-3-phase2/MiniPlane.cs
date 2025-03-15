@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MiniPlane : MonoBehaviour
 {
+    public Animator miniPlaneAnimator;
     public Transform firePoint;
     public Bullet bulletPrefab;
 
@@ -14,11 +15,18 @@ public class MiniPlane : MonoBehaviour
 
     public float minAngle = -30f;
     public float maxAngle = 30f;
+    private float minX = 0f;
+    private float maxX = 4f;
+    private float randomX;
 
     private void Start()
     {
         moveForward = true;
         movementPause = false;
+
+        randomX = Random.Range(minX, maxX);
+        Debug.Log("randomX:" + randomX);
+
         Destroy(gameObject, lifeTime);
     }
 
@@ -26,13 +34,14 @@ public class MiniPlane : MonoBehaviour
     {
         if (moveForward && !movementPause) // Move forward
         {
-            Debug.Log("Moving Forward");
             transform.position = new Vector3(
                 transform.position.x - (speed * Time.deltaTime),
                 transform.position.y,
                 transform.position.z
             );
-            if(gameObject.transform.position.x <= 0f)
+
+            
+            if(gameObject.transform.position.x <= randomX)
             {
                 StartCoroutine(MovementPause());
                 moveForward = false;
@@ -41,7 +50,8 @@ public class MiniPlane : MonoBehaviour
         }
         else if(!moveForward && !movementPause)// Move backward when triggered
         {
-            Debug.Log("Moving Backward");
+            miniPlaneAnimator.SetBool("isFlipped", true);
+
             transform.position = new Vector3(
                 transform.position.x + (speed * Time.deltaTime),
                 transform.position.y,
