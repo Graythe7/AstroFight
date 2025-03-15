@@ -10,6 +10,7 @@ TagManager:
   - MiniEnemy
   - EnemyBullet
   - Boundry
+  - miniPlaneTrigger
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Bullet
   - PlayerWinState
   - Boundry
-  - 
+  - MiniPlaneTrigger
   - 
   - 
   - 
