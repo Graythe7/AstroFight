@@ -165,10 +165,10 @@ public class GameManager : MonoBehaviour
             boss.MovementPause(false);
             boss.Level3Phase1End(true);
 
-
-            SceneManager.LoadScene("Level-3-Phase2", LoadSceneMode.Additive);
-
-            Invoke(nameof(NewGameL3Phase2), 17f);
+            if (boss.phase2newGame)
+            {
+                NewGameL3Phase2();
+            }
 
         }
         else
@@ -199,11 +199,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //this function is for level-3 phase1 to phase 2 transition
-    private void LoadNextLevel()
+    // Helper function to check if a scene is already loaded
+    bool IsSceneLoaded(string sceneName)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load next level
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name == sceneName)
+            {
+                return true; // Scene is already loaded
+            }
+        }
+        return false; // Scene is not loaded
     }
+
 
     public void NewGameL3Phase2()
     {
@@ -218,7 +227,9 @@ public class GameManager : MonoBehaviour
         healthBar.HealthUI(bossHealth);
 
         player.GetComponent<SpriteRenderer>().enabled = true;
+
         boss.BossDead(false);
+        //boss.Level3Phase1End(false);
 
         gameOverText.SetActive(false);
         retryButton.gameObject.SetActive(false);
@@ -240,7 +251,11 @@ public class GameManager : MonoBehaviour
             playerLivesImg[i].enabled = true;
         }
 
-        SpawnerActive(true);
+        if (!IsSceneLoaded("Level-3-Phase2"))
+        {
+            SceneManager.LoadScene("Level-3-Phase2", LoadSceneMode.Additive);
+        }
+
 
     }
 

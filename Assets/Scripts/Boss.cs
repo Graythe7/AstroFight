@@ -17,10 +17,13 @@ public class Boss : MonoBehaviour
     private bool canMove = true;
     private bool movingDownL3 = false;
     private bool movingUpTransition = false;
+    public bool phase2newGame = false;
   
 
     private void Awake()
     {
+        phase2newGame = false;
+
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -29,16 +32,19 @@ public class Boss : MonoBehaviour
     {
         if (canMove) //canMove is checked if boss is paused 
         {
+            Debug.Log("DefaultMovement");
             DefaultMovement();
         }
 
         if (movingDownL3) //moving downward at the end of level-3 phase1 
         {
+            Debug.Log("movingDownL3");
             MoveDownAtEndOfPhase();
 
         }
         if (movingUpTransition) //move upward with new animation 
         {
+            Debug.Log("movingUpTransition");
             MoveUpTransition();
         }
 
@@ -89,15 +95,23 @@ public class Boss : MonoBehaviour
 
     private void MoveUpTransition()
     {
-        if (transform.position.y <= 0f)
+        if (transform.position.y <= 1f)
         {
             transform.position = new Vector3(
                 transform.position.x,
-                transform.position.y + (1f * Time.deltaTime), // Moves down slowly
+                transform.position.y + (1.5f * Time.deltaTime), // Moves down slowly
                 transform.position.z
             );
-
+            if(transform.position.y >= 0f)
+            {
+                canMove = true;
+                movingDownL3 = false;
+                movingUpTransition = false;
+                phase2newGame = true;
+                DefaultMovement();
+            }
         }
+        
     }
 
 
