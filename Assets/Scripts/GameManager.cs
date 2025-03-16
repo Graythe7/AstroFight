@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
 
         player.GetComponent<SpriteRenderer>().enabled = true;
         boss.BossDead(false);
+        boss.ActivateBoxCollider(true);
 
         gameOverText.SetActive(false);
         retryButton.gameObject.SetActive(false);
@@ -157,7 +158,9 @@ public class GameManager : MonoBehaviour
     {
         bossShoot.gameObject.SetActive(false);
         SpawnerActive(false);
-        
+
+        boss.ActivateBoxCollider(false);
+
         WinState = true;
 
         if (SceneManager.GetActiveScene().name == "Level-3" && BossL3Phase == 1)

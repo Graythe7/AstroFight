@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2592398473573343549}
   - component: {fileID: -9147246569916948402}
   - component: {fileID: -2407673051183187768}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: BulletMiniPlane
-  m_TagString: Enemy
+  m_TagString: MiniEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

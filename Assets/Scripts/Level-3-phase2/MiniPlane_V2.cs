@@ -14,7 +14,7 @@ public class MiniPlane_V2 : MonoBehaviour
     private bool movementPause = false;
 
     private float minX = 0f;
-    private float maxX = 4f;
+    private float maxX = -2f;
     private float randomX;
 
     private void Start()

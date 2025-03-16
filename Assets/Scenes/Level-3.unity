@@ -11191,9 +11191,11 @@ MonoBehaviour:
   bossAnimator: {fileID: 961036883}
   spriteRenderer: {fileID: 961036879}
   gameManager: {fileID: 944124881}
+  bossCollider2D: {fileID: 961036878}
   speed: 1
   minY: -1.5
   maxY: 1.5
+  phase2newGame: 0
 --- !u!95 &961036883
 Animator:
   serializedVersion: 4

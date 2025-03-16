@@ -19,4 +19,13 @@ public class BulletMiniPlane : MonoBehaviour
         rigidBody.AddForce(direction * speed);
         Destroy(gameObject, lifetime);
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

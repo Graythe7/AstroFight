@@ -8,6 +8,7 @@ public class Boss : MonoBehaviour
     private Rigidbody2D rigidBody;
     public SpriteRenderer spriteRenderer;
     public GameManager gameManager;
+    public BoxCollider2D bossCollider2D;
    
     public float speed = 1.0f;
     public float minY = -1.5f;
@@ -25,25 +26,23 @@ public class Boss : MonoBehaviour
 
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        bossCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
         if (canMove) //canMove is checked if boss is paused 
         {
-            Debug.Log("DefaultMovement");
             DefaultMovement();
         }
 
         if (movingDownL3) //moving downward at the end of level-3 phase1 
         {
-            Debug.Log("movingDownL3");
             MoveDownAtEndOfPhase();
 
         }
         if (movingUpTransition) //move upward with new animation 
         {
-            Debug.Log("movingUpTransition");
             MoveUpTransition();
         }
 
@@ -85,6 +84,7 @@ public class Boss : MonoBehaviour
             if (transform.position.y <= -6.5f)
             {
                 bossAnimator.SetBool("phase2Active", true);
+                ActivateBoxCollider(true);
                 speed = 1.5f;
                 movingDownL3 = false;
                 movingUpTransition = true; // to trigger the transition 
@@ -144,6 +144,10 @@ public class Boss : MonoBehaviour
     }
 
     
-
+    public void ActivateBoxCollider(bool value)
+    {
+        bossCollider2D.enabled = value;
+        Debug.Log("BoxCollider is: " + value);
+    }
     
 }
