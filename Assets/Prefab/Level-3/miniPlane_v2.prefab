@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniPlaneV2Animator: {fileID: 478401179538361072}
   firePoint: {fileID: 9040981187677673655}
-  bulletPrefab: {fileID: 6031508028336148343, guid: 1084664003be24205a4327f012145eed, type: 3}
+  bulletPrefab: {fileID: -2407673051183187768, guid: 1084664003be24205a4327f012145eed, type: 3}
   speed: 3
 --- !u!1 &9040981187677673654
 GameObject:

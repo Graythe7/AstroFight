@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6308083649779059007}
   - component: {fileID: 1081672938507488650}
   - component: {fileID: 2592398473573343549}
-  - component: {fileID: 6031508028336148343}
   - component: {fileID: -9147246569916948402}
+  - component: {fileID: -2407673051183187768}
   m_Layer: 8
   m_Name: BulletMiniPlane
   m_TagString: Enemy
@@ -113,20 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6031508028336148343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4294831883762664608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d15ced7aa91490788a93bec3cb662d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 300
-  lifetime: 2
 --- !u!50 &-9147246569916948402
 Rigidbody2D:
   serializedVersion: 4
@@ -148,3 +134,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2407673051183187768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294831883762664608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c527caf4d3e4be59468e1bb763d43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 300
+  lifetime: 5

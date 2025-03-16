@@ -6,7 +6,7 @@ public class MiniPlane : MonoBehaviour
 {
     public Animator miniPlaneAnimator;
     public Transform firePoint;
-    public Bullet bulletPrefab;
+    public BulletMiniPlane bulletPrefab;
 
     public float speed = 5f;
     private float lifeTime = 10f;
@@ -68,7 +68,7 @@ public class MiniPlane : MonoBehaviour
         foreach (float angle in angles)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, angle);
-            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
+            BulletMiniPlane bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
             bullet.Project(rotation * Vector2.left);
         }
     }

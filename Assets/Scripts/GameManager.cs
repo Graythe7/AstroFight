@@ -170,6 +170,17 @@ public class GameManager : MonoBehaviour
                 NewGameL3Phase2();
             }
 
+        }else if (SceneManager.GetActiveScene().name == "Level-3" && BossL3Phase == 2)
+        {
+            if (IsSceneLoaded("Level-3-Phase2"))
+            {
+                SceneManager.UnloadSceneAsync("Level-3-Phase2");
+            }
+
+            InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
+            winText.gameObject.SetActive(true);
+            nextLevelButton.gameObject.SetActive(true);
+            boss.enabled = false;
         }
         else
         {

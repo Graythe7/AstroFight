@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniPlaneAnimator: {fileID: 5739387076759410621}
   firePoint: {fileID: 9040981187677673655}
-  bulletPrefab: {fileID: 6031508028336148343, guid: 1084664003be24205a4327f012145eed, type: 3}
+  bulletPrefab: {fileID: -2407673051183187768, guid: 1084664003be24205a4327f012145eed, type: 3}
   speed: 5
   minAngle: -30
   maxAngle: 30

@@ -30,7 +30,7 @@ public class CircularShooter : MonoBehaviour
             //ShootBullets();
 
             // Stop shooting and destroy after completing a full circle (360 degrees)
-            if (angleRotated >= 720f)
+            if (angleRotated >= 360f)
             {
                 isShooting = false;
                 StopCoroutine(ShootBullets()); // Stop shooting
