@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 9040981187240313625}
   - component: {fileID: 9040981187240313626}
   - component: {fileID: 5739387076759410621}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: miniPlane
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9040981187677673655}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
