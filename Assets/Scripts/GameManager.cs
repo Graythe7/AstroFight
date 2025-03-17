@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayBeforeFight());
 
         playerLives = 3;
-        bossHealth = 10; // change it back !!  
+        bossHealth = 50; // change it back !!  
 
         WinState = false;
         BossL3Phase = 1;
@@ -131,6 +131,12 @@ public class GameManager : MonoBehaviour
         if(bossHealth <= 0)
         {
             boss.BossDead(true);
+
+            if(SceneManager.GetActiveScene().name == "Level-3" && BossL3Phase == 2)
+            {
+                boss.BossPhase2Dead(true);
+            }
+
             WinGame();
         }
     }
@@ -159,8 +165,6 @@ public class GameManager : MonoBehaviour
         bossShoot.gameObject.SetActive(false);
         SpawnerActive(false);
 
-        boss.ActivateBoxCollider(false);
-
         WinState = true;
 
         if (SceneManager.GetActiveScene().name == "Level-3" && BossL3Phase == 1)
@@ -180,7 +184,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.UnloadSceneAsync("Level-3-Phase2");
             }
 
-            InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
+            //InvokeRepeating(nameof(BossParticleEffect), 0f, 1.5f);
             winText.gameObject.SetActive(true);
             nextLevelButton.gameObject.SetActive(true);
             boss.enabled = false;
@@ -233,7 +237,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         playerLives = 3;
-        bossHealth = 100;
+        bossHealth = 50; //dont't forget to change back !!!
 
         WinState = false;
         BossL3Phase = 2;

@@ -16,7 +16,7 @@ public class CircularShooter : MonoBehaviour
     void Start()
     {
         angleRotated = 0f;
-        StartCoroutine(ShootBullets());
+        Invoke(nameof(StartShooting), 1f);
     }
 
     void Update()
@@ -37,6 +37,11 @@ public class CircularShooter : MonoBehaviour
                 Destroy(gameObject, 0.5f); // Destroy after a short delay
             }
         }
+    }
+
+    private void StartShooting()
+    {
+        StartCoroutine(ShootBullets());
     }
 
     private IEnumerator ShootBullets()

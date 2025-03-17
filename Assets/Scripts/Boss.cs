@@ -50,6 +50,7 @@ public class Boss : MonoBehaviour
 
     private void DefaultMovement()
     {
+        ActivateBoxCollider(true);
         if (movingUp)
         {
             transform.Translate(speed * Time.deltaTime * Vector2.up);
@@ -75,6 +76,7 @@ public class Boss : MonoBehaviour
         
         if (transform.position.y >= -8)
         {
+            ActivateBoxCollider(false);
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y - (0.5f * Time.deltaTime), // Moves down slowly
@@ -84,7 +86,6 @@ public class Boss : MonoBehaviour
             if (transform.position.y <= -6.5f)
             {
                 bossAnimator.SetBool("phase2Active", true);
-                ActivateBoxCollider(true);
                 speed = 1.5f;
                 movingDownL3 = false;
                 movingUpTransition = true; // to trigger the transition 
@@ -131,6 +132,12 @@ public class Boss : MonoBehaviour
     public void BossDead(bool isBossDead)
     {
         bossAnimator.SetBool("isBossDead", isBossDead);
+    }
+
+    public void BossPhase2Dead(bool isPhase2Dead)
+    {
+        bossAnimator.SetBool("isPhase2Dead", isPhase2Dead);
+        //bossAnimator.SetBool("isPhase2End", true);
     }
 
     public void MovementPause(bool value) //used in level-2 shoot 
