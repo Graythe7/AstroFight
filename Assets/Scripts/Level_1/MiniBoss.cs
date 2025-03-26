@@ -6,10 +6,12 @@ public class MiniBoss : MonoBehaviour
 {
     public float speed = 15.0f;
     public float lifeTime = 7.0f;
+    private float miniBossHealth = 3f;
     
     private void Start()
     {
         Destroy(gameObject, lifeTime);
+        miniBossHealth = 3f;
     }
 
     private void Update()
@@ -21,7 +23,11 @@ public class MiniBoss : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            miniBossHealth--;
+            if(miniBossHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
