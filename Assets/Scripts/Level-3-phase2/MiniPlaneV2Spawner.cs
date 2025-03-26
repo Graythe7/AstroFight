@@ -10,10 +10,12 @@ public class MiniPlaneV2Spawner : MonoBehaviour
     private float minY = -2f;
     private float minSpawnTime = 5f;
     private float maxSpawnTime = 9f;
+    private float planeHealth = 3f;
 
     private void Start()
     {
         Invoke(nameof(StartSpawning), 6f);
+        planeHealth = 3f;
     }
 
     private void StartSpawning()
@@ -34,5 +36,16 @@ public class MiniPlaneV2Spawner : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            planeHealth--;
+            if (planeHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 
 }

@@ -12,6 +12,7 @@ public class MiniPlane_V2 : MonoBehaviour
     private float lifeTime = 10f;
     private bool moveForward = true;
     private bool movementPause = false;
+    private float planeHealth = 5f;
 
     private float minX = 0f;
     private float maxX = -2f;
@@ -21,6 +22,7 @@ public class MiniPlane_V2 : MonoBehaviour
     {
         moveForward = true;
         movementPause = false;
+        planeHealth = 5f;
 
         randomX = Random.Range(minX, maxX);
         Debug.Log("randomX:" + randomX);
@@ -79,5 +81,15 @@ public class MiniPlane_V2 : MonoBehaviour
         movementPause = false; // Resume movement
     }
 
-
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            planeHealth--;
+            if (planeHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }
