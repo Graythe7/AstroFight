@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public Bullet bulletPrefab;
     public GameManager gameManager;
+
     private Rigidbody2D rigidBody;
     public SpriteRenderer spriteRenderer;
  
@@ -15,13 +16,15 @@ public class Player : MonoBehaviour
     public float invincibilityDuration = 3.0f;
     public float flashInterval = 0.5f;
     public float fireRate = 2.0f; // interval between continious shooting
-    private float nextFireTime = 0.0f; 
+    private float nextFireTime = 0.0f;
 
+    AudioManager audioManager;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -48,6 +51,8 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
+        audioManager.Play(audioManager.Shoot, 0.2f);
+
         Bullet bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         bullet.Project(transform.right);
     }
