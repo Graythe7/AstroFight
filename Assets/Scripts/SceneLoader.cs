@@ -20,6 +20,14 @@ public class SceneLoader : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(levelIndex);
+        if(SceneManager.GetActiveScene().name == "Level-3")
+        {
+            SceneManager.LoadScene(levelIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(levelIndex);
+        }
+
     }
 }
