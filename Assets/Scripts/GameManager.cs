@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public GameObject FightTxt;
     public Image[] playerLivesImg;
 
+    AudioManager audioManager;
+
     public void Awake(){
         NewGame();
     }
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         FightTxt.gameObject.SetActive(false);
 
+    }
+
+    private void Start()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     public void NewGame()
@@ -96,7 +103,8 @@ public class GameManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        NewGame();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void PlayerDamage()
@@ -149,6 +157,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameOverSequence()
     {
         playerExplosion.Play();
+        audioManager.Play(audioManager.GameOver, 1f);
         player.GetComponent<SpriteRenderer>().enabled = false;
 
         yield return new WaitForSecondsRealtime(0.5f);
@@ -166,6 +175,11 @@ public class GameManager : MonoBehaviour
         SpawnerActive(false);
 
         WinState = true;
+
+        if (AudioManager.instance != null)
+        {
+            Destroy(AudioManager.instance.gameObject); // Destroy the old AudioManager
+        }
 
         if (SceneManager.GetActiveScene().name == "Level-3" && BossL3Phase == 1)
         {

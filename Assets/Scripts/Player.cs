@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        audioManager.Play(audioManager.Shoot, 0.2f);
+        audioManager.Play(audioManager.Shoot, 0.5f);
 
         Bullet bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         bullet.Project(transform.right);
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("MiniEnemy") || other.gameObject.CompareTag("EnemyBullet"))
             {
+                audioManager.Play(audioManager.damage, 1f);
                 gameManager.PlayerDamage();
             }
         }
