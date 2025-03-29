@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        //audioManager.StartInvoke();
     }
 
     public void NewGame()
@@ -103,14 +104,14 @@ public class GameManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1;
-        NewGame();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void PlayerDamage()
     {
         if (player.isInvincible) return; //if isInvincible flag is true the rest of method is temporary disable
 
+        audioManager.PlaySFX(audioManager.damage, 1f);
         playerLives--;
 
         if (playerLives >= 0 && playerLives < playerLivesImg.Length) // to prevent out of range index error
@@ -157,7 +158,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameOverSequence()
     {
         playerExplosion.Play();
-        audioManager.Play(audioManager.GameOver, 1f);
+        audioManager.PlaySFX(audioManager.GameOver, 1.3f);
         player.GetComponent<SpriteRenderer>().enabled = false;
 
         yield return new WaitForSecondsRealtime(0.5f);
@@ -175,11 +176,6 @@ public class GameManager : MonoBehaviour
         SpawnerActive(false);
 
         WinState = true;
-
-        if (AudioManager.instance != null)
-        {
-            Destroy(AudioManager.instance.gameObject); // Destroy the old AudioManager
-        }
 
         if (SceneManager.GetActiveScene().name == "Level-3" && BossL3Phase == 1)
         {
