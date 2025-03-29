@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Shoot;
     public AudioClip GameOver;
     public AudioClip damage;
+    public AudioClip buttonUI;
     
     void Awake()
     {
@@ -55,6 +56,7 @@ public class AudioManager : MonoBehaviour
     private void PlayDefaultMusic()
     {
         StartMusic(backGround);
+        //currentMusicClip = backGround;
     }
 
     public void StartMusic(AudioClip clip)

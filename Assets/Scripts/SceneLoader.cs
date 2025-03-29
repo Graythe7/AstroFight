@@ -21,6 +21,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
+        audioManager.PlaySFX(audioManager.buttonUI, 1f);
         audioManager.StopMusic();
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }

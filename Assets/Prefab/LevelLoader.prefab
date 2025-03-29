@@ -47,6 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 7175304367662839428}
   transitionTime: 1
+  levelMusicList:
+  - {fileID: 8300000, guid: e1a67afa62d3948a7a2ec31f7dacfb53, type: 3}
+  - {fileID: 8300000, guid: 0897882f564974aa5b372f49badad484, type: 3}
+  - {fileID: 8300000, guid: 0897882f564974aa5b372f49badad484, type: 3}
+  - {fileID: 8300000, guid: c3378954492534fe083f8dd0abfa872a, type: 3}
+  - {fileID: 8300000, guid: 16ac0f7d5bb2d42be972ad871f5364b1, type: 3}
 --- !u!1 &2779073047827901396
 GameObject:
   m_ObjectHideFlags: 0
