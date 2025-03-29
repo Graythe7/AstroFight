@@ -1583,6 +1583,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 681834740802826812, guid: d9b30dc00b32a43408a60f419985310d, type: 3}
+      propertyPath: levelMusicList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b70e45b0b03f4b9f94ff775db4d2f78, type: 3}
     - target: {fileID: 9212284064631580390, guid: d9b30dc00b32a43408a60f419985310d, type: 3}
       propertyPath: m_RootOrder
       value: 4

@@ -453,6 +453,7 @@ MonoBehaviour:
   Shoot: {fileID: 8300000, guid: ab9d1b592b64e4ae29f4977a285ad289, type: 3}
   GameOver: {fileID: 8300000, guid: 5901521fe263b48cfbdba812aca83cfb, type: 3}
   damage: {fileID: 8300000, guid: 322fb333e86da45d8993252731ef4e01, type: 3}
+  buttonUI: {fileID: 8300000, guid: 2d72788177d204146bec46a7308b4fac, type: 3}
 --- !u!1 &363786461
 GameObject:
   m_ObjectHideFlags: 0
@@ -17137,7 +17138,7 @@ PrefabInstance:
     - target: {fileID: 681834740802826812, guid: d9b30dc00b32a43408a60f419985310d, type: 3}
       propertyPath: levelMusicList.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: c3378954492534fe083f8dd0abfa872a, type: 3}
+      objectReference: {fileID: 8300000, guid: 6b70e45b0b03f4b9f94ff775db4d2f78, type: 3}
     - target: {fileID: 681834740802826812, guid: d9b30dc00b32a43408a60f419985310d, type: 3}
       propertyPath: levelMusicList.Array.data[2]
       value: 
