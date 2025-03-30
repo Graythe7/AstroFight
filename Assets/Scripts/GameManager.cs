@@ -96,8 +96,8 @@ public class GameManager : MonoBehaviour
 
         SpawnerActive(true);
 
-        player.transform.position = new Vector2(-6f, 0.0f);
-        boss.transform.position = new Vector2(5f, 0f);
+        player.transform.position = new Vector2(-5.5f, 0.0f);
+        boss.transform.position = new Vector2(4.5f, 0f);
 
     }
 

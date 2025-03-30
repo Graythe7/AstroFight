@@ -22,7 +22,7 @@ public class BulletMiniPlane : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Boundry"))
         {
             Destroy(gameObject);
         }

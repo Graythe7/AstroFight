@@ -580,10 +580,6 @@ PlayableDirector:
     value: {fileID: 651027783}
   - key: {fileID: -949545916227724447, guid: 7fbd261d39cfc41acbeb9d5f91f738fc, type: 2}
     value: {fileID: 312151018}
-  - key: {fileID: 5598366596532150565, guid: 7fbd261d39cfc41acbeb9d5f91f738fc, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: -285257487750107964, guid: 7fbd261d39cfc41acbeb9d5f91f738fc, type: 2}
-    value: {fileID: 0}
   - key: {fileID: 8953060306730414045, guid: 7fbd261d39cfc41acbeb9d5f91f738fc, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
@@ -1003,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1291800b427544cb82dee3a2b3c5889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTime: 19.25
+  transitionTime: 19.2
 --- !u!1 &1400314718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1318,10 @@ PrefabInstance:
       propertyPath: levelMusicList.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 6b70e45b0b03f4b9f94ff775db4d2f78, type: 3}
+    - target: {fileID: 681834740802826812, guid: d9b30dc00b32a43408a60f419985310d, type: 3}
+      propertyPath: levelMusicList.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 656193b2dc75041e196f81d21f2df154, type: 3}
     - target: {fileID: 9212284064631580390, guid: d9b30dc00b32a43408a60f419985310d, type: 3}
       propertyPath: m_RootOrder
       value: 1
