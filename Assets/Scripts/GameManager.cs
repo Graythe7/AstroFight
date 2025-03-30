@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayBeforeFight());
 
         playerLives = 3;
-        bossHealth = 50; // change it back !!  
+        bossHealth = 100; // change it back !!  
 
         WinState = false;
         BossL3Phase = 1;
@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
     public void RetryGame()
     {
         Time.timeScale = 1;
+        audioManager.PlaySFX(audioManager.buttonUI, 1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -247,7 +248,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
 
         playerLives = 3;
-        bossHealth = 50; //dont't forget to change back !!!
+        bossHealth = 100; //dont't forget to change back !!!
 
         WinState = false;
         BossL3Phase = 2;
