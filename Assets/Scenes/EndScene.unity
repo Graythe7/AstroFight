@@ -343,10 +343,10 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 5746658429675852202, guid: d291410e872844b5b90840e33794a816, type: 2}
     value: {fileID: 884102943}
-  - key: {fileID: -1374940687897646986, guid: d291410e872844b5b90840e33794a816, type: 2}
-    value: {fileID: 0}
   - key: {fileID: -3346580081754679089, guid: d291410e872844b5b90840e33794a816, type: 2}
     value: {fileID: 0}
+  - key: {fileID: -4610564138572049398, guid: d291410e872844b5b90840e33794a816, type: 2}
+    value: {fileID: 1398618118}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &416468435
@@ -781,12 +781,120 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.7}
+  m_Size: {x: 1.6, y: 0.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1398618116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398618119}
+  - component: {fileID: 1398618118}
+  - component: {fileID: 1398618117}
+  m_Layer: 0
+  m_Name: Timeline_SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1398618117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398618116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d77dd6551d34e39a4841062f270b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ufoAbduction: {fileID: 8300000, guid: 025c5573a05224ee5b4177a8b45954d1, type: 3}
+  cageOpen: {fileID: 8300000, guid: 5d2f3085480754c1aadafbe7168d7c5d, type: 3}
+  Cheer: {fileID: 8300000, guid: 7ef5b1d50d67543398f19c820249b165, type: 3}
+--- !u!114 &1398618118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398618116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 214c42439ddc94ba18b58ca8fdb6d9f1, type: 2}
+    - {fileID: 11400000, guid: f93ce78eb1a4f4556b3de6bb922a0bbc, type: 2}
+    - {fileID: 11400000, guid: dcecb830cfb484dfeadfefb34528bf8d, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1398618117}
+          m_TargetAssemblyTypeName: TimeLineSFX, Assembly-CSharp
+          m_MethodName: UfoSFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1398618117}
+          m_TargetAssemblyTypeName: TimeLineSFX, Assembly-CSharp
+          m_MethodName: CageOpenSFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1398618117}
+          m_TargetAssemblyTypeName: TimeLineSFX, Assembly-CSharp
+          m_MethodName: CheerSFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!4 &1398618119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398618116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5897919, y: -0.6274296, z: -0.09913698}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2105171657
 GameObject:
   m_ObjectHideFlags: 0

@@ -1157,7 +1157,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2053795235}
-        m_TargetAssemblyTypeName: LoadMainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: LoadSpecificLevel, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -1215,8 +1215,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053795233}
-  - component: {fileID: 2053795235}
   - component: {fileID: 2053795234}
+  - component: {fileID: 2053795235}
   m_Layer: 0
   m_Name: back to mainMenu
   m_TagString: Untagged
@@ -1344,6 +1344,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2053795232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fae999c726124b09b2fc13921aa3c03, type: 3}
+  m_Script: {fileID: 11500000, guid: f35ade93a147946e2b4bbe86e6768d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
